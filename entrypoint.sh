@@ -7,7 +7,7 @@ CONFIG_PATH=$1
 DIST_NAME=$(cat $CONFIG_PATH | yq '.dist.name')
 
 #Override the output_path of the configuration to the provided build_path
-yq -i '.dist.output_path = "${BUILD_PATH}"' ${CONFIG_PATH} 
+yq -i ".dist.output_path = \"${BUILD_PATH}\"" ${CONFIG_PATH} 
 
 mkdir -p ${BUILD_PATH}
 chmod 777 ${BUILD_PATH}
