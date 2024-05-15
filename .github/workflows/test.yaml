@@ -7,9 +7,9 @@ jobs:
     name: A job to build a custom OpenTelemetry Collector
     steps:
       - uses: actions/checkout@v3
-      - name: Custom Collector Step
+      - name: Build custom collector
         id: custom-collector
-        uses: pbronneberg/custom-collector-action@main
+        uses: pbronneberg/collector-builder-action@main
         with:
           manifest-file: "test/otelcol-builder.yaml"
           architecture: "amd64"
