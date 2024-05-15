@@ -7,13 +7,13 @@ RUN apk add git curl ca-certificates && rm -rf /var/cache/apk/*
 RUN curl https://www.cisco.com/security/pki/certs/ciscoumbrellaroot.pem -o /usr/local/share/ca-certificates/Cisco_Umbrella_Root_CA.crt && \
     update-ca-certificates
 
-RUN mkdir -p /opt/app-data
+RUN mkdir -p /opt/app-root
 RUN go install go.opentelemetry.io/collector/cmd/builder@${BUILDER_VERSION}
 
-WORKDIR /opt/app-data
+WORKDIR /opt/app-root
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh .
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
