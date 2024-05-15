@@ -15,4 +15,4 @@ jobs:
           architecture: "amd64"
           os: "linux"
       - name: Get the output file
-        run: echo "The file is ${{ steps.custom-collector.outputs.file }}"
+        run: echo "The file is ${{ steps.custom-collector.outputs.collector-file }}"
