@@ -8,6 +8,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Custom Collector Step
         id: custom-collector
-        uses: codeboten/custom-collector-action@main
+        uses: pbronneberg/custom-collector-action@main
+        with:
+          manifest-file: "test/otelcol-builder.yaml"
+          architecture: "amd64"
+          os: "linux"
       - name: Get the output file
         run: echo "The file is ${{ steps.custom-collector.outputs.file }}"

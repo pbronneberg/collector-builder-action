@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/sh
 
 export CGO_ENABLED=0
 export GOFLAGS=-buildvcs=false
