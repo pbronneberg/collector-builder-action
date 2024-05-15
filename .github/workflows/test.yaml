@@ -16,3 +16,5 @@ jobs:
           os: "linux"
       - name: Get the output file
         run: echo "The file is ${{ steps.custom-collector.outputs.collector-file }}"
+      - name: Test custom builder
+        run: ${{ steps.custom-collector.outputs.collector-file }} validate --config=test/otelcol.yaml

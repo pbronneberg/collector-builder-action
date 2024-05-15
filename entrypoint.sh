@@ -13,4 +13,3 @@ CONFIG_PATH=$1
 DIST_NAME=$(cat $CONFIG_PATH | yq '.dist.name')
 
 echo "collector-file='${BUILD_PATH}/${DIST_NAME}'" >> $GITHUB_OUTPUT
-
