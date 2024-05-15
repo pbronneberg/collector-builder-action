@@ -3,7 +3,9 @@ FROM golang:1.22.3-alpine3.19 as build
 ARG TARGETARCH
 ARG BUILDER_VERSION=v0.100.0
 
-RUN apk add git curl && rm -rf /var/cache/apk/*
+RUN apk add git curl ca-certificates && rm -rf /var/cache/apk/*
+RUN curl https://www.cisco.com/security/pki/certs/ciscoumbrellaroot.pem -o /usr/local/share/ca-certificates/Cisco_Umbrella_Root_CA.crt && \
+    update-ca-certificates
 
 RUN mkdir -p /opt/app-data
 RUN go install go.opentelemetry.io/collector/cmd/builder@${BUILDER_VERSION}
