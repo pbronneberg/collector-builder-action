@@ -3,9 +3,12 @@ FROM golang:1.22.3-alpine3.19 as build
 ARG TARGETARCH
 ARG BUILDER_VERSION=v0.100.0
 
-RUN curl -L -o /builder https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${BUILDER_VERSION}/ocb_${BUILDER_VERSION}_linux_${TARGETARCH}
-RUN chmod +x /builder
-WORKDIR /build
+RUN apk add git curl && rm -rf /var/cache/apk/*
+
+RUN mkdir -p /opt/app-data
+RUN go install go.opentelemetry.io/collector/cmd/builder@${BUILDER_VERSION}
+
+WORKDIR /opt/app-data
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
