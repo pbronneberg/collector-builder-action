@@ -14,9 +14,10 @@ exporters:
   debug:
 
 service:
+  extensions: [zpages]
   pipelines:
     traces:
       receivers: [otlp]
       processors: [batch]
       exporters: [debug]
-      extensions: [zpages]
+      
