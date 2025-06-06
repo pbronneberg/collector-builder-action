@@ -1,3 +1,6 @@
+extensions:
+  zpages:
+
 receivers:
   otlp:
     protocols:
@@ -13,9 +16,7 @@ exporters:
 service:
   pipelines:
     traces:
-      receivers:
-        - otlp
-      processors:
-        - batch
-      exporters:
-        - debug
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]
+      extensions: [zpages]

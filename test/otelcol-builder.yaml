@@ -13,3 +13,6 @@ processors:
 
 providers:
   - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v0.127.0
+
+extensions:
+  - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.127.0
