@@ -1,7 +1,7 @@
-FROM golang:1.22.3-alpine3.19 as build
+FROM golang:1.24.4-alpine3.22 as build
 
 ARG TARGETARCH
-ARG BUILDER_VERSION=v0.100.0
+ARG BUILDER_VERSION=v0.127.0
 
 RUN apk add git curl yq ca-certificates && rm -rf /var/cache/apk/*
 RUN curl https://www.cisco.com/security/pki/certs/ciscoumbrellaroot.pem -o /usr/local/share/ca-certificates/Cisco_Umbrella_Root_CA.crt && \
