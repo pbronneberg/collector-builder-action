@@ -1,4 +1,4 @@
-FROM golang:1.23.10-alpine3.22 as build
+FROM golang:1.23.10-alpine3.22 AS build
 
 ARG TARGETARCH
 ARG BUILDER_VERSION=v0.127.0

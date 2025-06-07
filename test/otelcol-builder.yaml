@@ -1,18 +1,16 @@
 dist:
   name: otelcol-custom
   description: Local OpenTelemetry Collector binary
-  output_path: /tmp/dist
+  output_path: ./test/result
 exporters:
   - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.127.0
-
 receivers:
   - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.127.0
-
 processors:
   - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.127.0
-
 providers:
-  - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v0.127.0
-
+  - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v1.33.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/envprovider v1.33.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/yamlprovider v1.33.0
 extensions:
   - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.127.0

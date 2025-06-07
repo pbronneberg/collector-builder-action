@@ -8,6 +8,7 @@ receivers:
         endpoint: localhost:4317
 
 processors:
+  batch:
 
 exporters:
   debug:
