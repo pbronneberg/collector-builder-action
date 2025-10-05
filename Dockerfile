@@ -1,7 +1,7 @@
-FROM golang:1.23.10-alpine3.22 AS build
+FROM golang:1.25.1-alpine3.22 AS build
 
 ARG TARGETARCH
-ARG BUILDER_VERSION=v0.127.0
+ARG BUILDER_VERSION=v0.136.0
 
 RUN mkdir -p /opt/app-root
 RUN apk add --no-cache git yq
